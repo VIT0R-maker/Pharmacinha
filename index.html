@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Pharmacinha — 29 anos cuidando da sua saúde | Franca/SP</title>
+  <meta name="description" content="Farmácia de manipulação, homeopatia, drogaria e nutrição esportiva em Franca/SP. Há 29 anos cuidando da saúde e do bem-estar da sua família." />
+
+  <!-- Open Graph (compartilhamento em redes sociais) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="A Pharmacinha — 29 anos cuidando da sua saúde" />
+  <meta property="og:description" content="Manipulação, homeopatia, drogaria e nutrição esportiva em Franca/SP." />
+  <meta property="og:image" content="images/fachada-atual.jpg" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💊</text></svg>" />
+
+  <!-- Fontes: Playfair Display (títulos, tradição) + Inter (texto, legibilidade) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind via CDN, conforme solicitado no briefing -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Paleta e tipografia extraídas da identidade visual da marca
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              DEFAULT: '#0f2e50',
+              dark: '#081b30',
+              light: '#1c4470',
+            },
+            gold: {
+              DEFAULT: '#c5a059',
+              light: '#dcc190',
+              dark: '#9c7b3f',
+            },
+            ice: '#e6f0fa',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'ui-serif', 'Georgia', 'serif'],
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            soft: '0 10px 30px -12px rgba(15, 46, 80, 0.25)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* ---------------------------------------------------------------
+       Estilos que o Tailwind (via CDN) não cobre sozinho:
+       suavização de rolagem, linha do tempo, foco de teclado,
+       respeito a "prefers-reduced-motion" e o pulso do botão do WhatsApp.
+       --------------------------------------------------------------- */
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Compensa a altura do header fixo ao navegar pelas âncoras */
+    section[id] {
+      scroll-margin-top: 84px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1f2937;
+    }
+
+    h1, h2, h3, .font-display {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Foco visível e acessível em qualquer elemento navegável por teclado */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid #c5a059;
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* Linha vertical conectando os marcos da linha do tempo (Sobre Nós) */
+    .timeline-line {
+      background: linear-gradient(to bottom, transparent, #c5a059 8%, #c5a059 92%, transparent);
+    }
+
+    /* Pulso sutil no botão flutuante do WhatsApp — único elemento com
+       movimento contínuo da página, para não competir por atenção */
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45); }
+      100% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+    }
+    .whatsapp-pulse {
+      animation: pulse-ring 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    /* Respeita a preferência do usuário por menos movimento */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .whatsapp-pulse { animation: none; }
+    }
+  </style>
+</head>
+
+<body class="bg-white text-slate-800 antialiased">
+
+  <!-- =========================================================
+       HEADER / NAVEGAÇÃO
+       Fixo no topo, com menu mobile em hambúrguer e CTA para WhatsApp
+       ========================================================= -->
+  <header id="site-header" class="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100 transition-shadow duration-300">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="flex items-center justify-between h-[76px]">
+
+        <!-- Logo em texto, conforme identidade da marca -->
+        <a href="#inicio" class="font-serif text-2xl sm:text-[26px] font-semibold text-navy tracking-tight">
+          A Pharmacinha
+        </a>
+
+        <!-- Navegação desktop -->
+        <nav class="hidden lg:flex items-center gap-9" aria-label="Navegação principal">
+          <a href="#inicio" class="text-[15px] text-navy/80 hover:text-navy transition-colors duration-300">Início</a>
+          <a href="#sobre" class="text-[15px] text-navy/80 hover:text-navy transition-colors duration-300">Sobre</a>
+          <a href="#servicos" class="text-[15px] text-navy/80 hover:text-navy transition-colors duration-300">Serviços</a>
+          <a href="#depoimentos" class="text-[15px] text-navy/80 hover:text-navy transition-colors duration-300">Depoimentos</a>
+          <a href="#contato" class="text-[15px] text-navy/80 hover:text-navy transition-colors duration-300">Contato</a>
+        </nav>
+
+        <!-- CTA desktop -->
+        <a href="https://wa.me/5516000000000?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Pharmacinha%21"
+           target="_blank" rel="noopener"
+           class="hidden lg:inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-navy-dark font-semibold text-[15px] px-5 py-2.5 rounded-lg shadow-sm transition-all duration-300 ease-in-out hover:scale-105">
+          <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.478 2 2 6.477 2 12c0 1.876.52 3.632 1.42 5.13L2 22l4.998-1.386A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12.001 2zm0 18.09c-1.66 0-3.216-.457-4.548-1.25l-.326-.195-3.005.834.833-2.938-.213-.303A8.09 8.09 0 013.91 12c0-4.465 3.627-8.09 8.091-8.09 4.464 0 8.09 3.625 8.09 8.09 0 4.464-3.626 8.09-8.09 8.09z"/></svg>
+          Fale no WhatsApp
+        </a>
+
+        <!-- Botão do menu mobile -->
+        <button id="menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menu"
+                class="lg:hidden p-2 text-navy">
+          <svg id="icon-open" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+          <svg id="icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Painel do menu mobile -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 bg-white px-5 pt-3 pb-6 space-y-1">
+      <a href="#inicio" class="block py-2.5 text-navy/85 text-[15px]">Início</a>
+      <a href="#sobre" class="block py-2.5 text-navy/85 text-[15px]">Sobre</a>
+      <a href="#servicos" class="block py-2.5 text-navy/85 text-[15px]">Serviços</a>
+      <a href="#depoimentos" class="block py-2.5 text-navy/85 text-[15px]">Depoimentos</a>
+      <a href="#contato" class="block py-2.5 text-navy/85 text-[15px]">Contato</a>
+      <a href="https://wa.me/5516000000000?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Pharmacinha%21"
+         target="_blank" rel="noopener"
+         class="mt-3 flex items-center justify-center gap-2 bg-gold text-navy-dark font-semibold text-[15px] px-5 py-3 rounded-lg">
+        Fale no WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <main class="pt-[76px]">
+
+    <!-- =========================================================
+         HERO
+         Mensagem central de 29 anos + foto real da fachada atual
+         ========================================================= -->
+    <section id="inicio" class="relative bg-navy overflow-hidden">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16 lg:py-24 grid lg:grid-cols-2 gap-14 items-center">
+
+        <!-- Texto -->
+        <div class="order-2 lg:order-1">
+          <h1 class="font-serif text-[2.15rem] leading-[1.15] sm:text-5xl sm:leading-[1.12] text-white">
+            Há 29 anos, cuidando da sua saúde com atenção de família.
+          </h1>
+          <p class="mt-6 text-[17px] leading-relaxed text-ice/90 max-w-md">
+            Manipulação personalizada, homeopatia, drogaria completa e nutrição esportiva — tudo em um só lugar, pensado para o seu bem-estar.
+          </p>
+
+          <div class="mt-9 flex flex-wrap items-center gap-4">
+            <a href="https://wa.me/5516000000000?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Pharmacinha%21"
+               target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-navy-dark font-semibold px-6 py-3.5 rounded-lg shadow-soft transition-all duration-300 ease-in-out hover:scale-105">
+              Falar no WhatsApp
+            </a>
+            <a href="#sobre"
+               class="inline-flex items-center gap-2 text-white/90 hover:text-white font-medium px-2 py-3.5 transition-colors duration-300">
+              Conhecer nossa história →
+            </a>
+          </div>
+        </div>
+
+        <!-- Foto real da fachada + selo dos 29 anos -->
+        <div class="order-1 lg:order-2 relative">
+          <div class="rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5]">
+            <img src="images/fachada-atual.jpg"
+                 alt="Fachada atual da farmácia A Pharmacinha, com fachada de vidro azul"
+                 class="w-full h-full object-cover"
+                 loading="eager" width="1400" height="1546" />
+          </div>
+
+          <!-- Selo com contador animado — único elemento com animação de destaque da página -->
+          <div class="absolute -bottom-6 -left-6 sm:-left-8 bg-white rounded-xl shadow-soft px-6 py-4 text-center">
+            <p class="font-serif text-4xl font-bold text-navy leading-none">
+              <span id="years-counter">0</span>
+            </p>
+            <p class="text-[11px] uppercase tracking-wide text-slate-500 mt-1">anos de cuidado</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SOBRE NÓS — storytelling com fotos reais da trajetória
+         ========================================================= -->
+    <section id="sobre" class="bg-white py-20 lg:py-28">
+      <div class="max-w-5xl mx-auto px-5 sm:px-8">
+
+        <div class="max-w-2xl">
+          <h2 class="font-serif text-3xl sm:text-4xl text-navy">
+            De uma pequena farmácia de bairro à estrutura que você conhece hoje
+          </h2>
+          <p class="mt-5 text-slate-600 leading-relaxed">
+            A Pharmacinha nasceu para cuidar de perto de cada cliente — com desconto para aposentados
+            e convênio com diversas empresas desde o primeiro dia. Foi assim, com atenção redobrada,
+            que fomos crescendo junto com Franca.
+          </p>
+
+          <p class="font-serif italic text-2xl text-gold-dark mt-8">
+            “O importante é o seu bem-estar.”
+          </p>
+        </div>
+
+        <!-- Linha do tempo: sequência real (início → construção → hoje),
+             por isso o uso de marcadores numerados/anos é apropriado aqui -->
+        <div class="mt-16 space-y-16">
+
+          <!-- Marco 1 -->
+          <div class="relative grid md:grid-cols-[auto,1fr] gap-8 md:gap-12">
+            <div class="hidden md:flex flex-col items-center">
+              <span class="w-3 h-3 rounded-full bg-gold ring-4 ring-ice"></span>
+              <span class="timeline-line w-px flex-1 mt-2"></span>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-6 items-center">
+              <div>
+                <!-- Ano aproximado, calculado a partir dos "29 anos" citados no briefing —
+                     confirmar com o cliente a data exata de fundação -->
+                <span class="text-sm font-semibold text-gold-dark">1997</span>
+                <h3 class="font-serif text-xl text-navy mt-1">Os primeiros passos</h3>
+                <p class="mt-3 text-slate-600 leading-relaxed">
+                  Abrimos as portas como uma farmácia de bairro, com manipulação, homeopatia,
+                  florais e produtos naturais — sempre com aquele atendimento de quem conhece
+                  o cliente pelo nome.
+                </p>
+              </div>
+              <div class="rounded-xl overflow-hidden shadow-md aspect-[4/3]">
+                <img src="images/inauguracao-antiga.jpg"
+                     alt="Fotografia antiga da inauguração da primeira loja da Pharmacinha, decorada com balões"
+                     class="w-full h-full object-cover" loading="lazy" width="1400" height="1508" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Marco 2 -->
+          <div class="relative grid md:grid-cols-[auto,1fr] gap-8 md:gap-12">
+            <div class="hidden md:flex flex-col items-center">
+              <span class="w-3 h-3 rounded-full bg-gold ring-4 ring-ice"></span>
+              <span class="timeline-line w-px flex-1 mt-2"></span>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-6 items-center">
+              <div class="sm:order-2">
+                <span class="text-sm font-semibold text-gold-dark">Expansão</span>
+                <h3 class="font-serif text-xl text-navy mt-1">Uma estrutura pensada para crescer</h3>
+                <p class="mt-3 text-slate-600 leading-relaxed">
+                  Para acompanhar a cidade e atender ainda melhor, construímos a estrutura que
+                  existe até hoje — maior, mais completa e pronta para novos serviços.
+                </p>
+              </div>
+              <div class="sm:order-1 rounded-xl overflow-hidden shadow-md aspect-[4/3]">
+                <img src="images/construcao.jpg"
+                     alt="Fotografia da construção do prédio atual da Pharmacinha, ainda em obra"
+                     class="w-full h-full object-cover" loading="lazy" width="1400" height="1544" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Marco 3 -->
+          <div class="relative grid md:grid-cols-[auto,1fr] gap-8 md:gap-12">
+            <div class="hidden md:flex flex-col items-center">
+              <span class="w-3 h-3 rounded-full bg-gold ring-4 ring-ice"></span>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-6 items-center">
+              <div>
+                <span class="text-sm font-semibold text-gold-dark">Hoje</span>
+                <h3 class="font-serif text-xl text-navy mt-1">A farmácia que você conhece</h3>
+                <p class="mt-3 text-slate-600 leading-relaxed">
+                  Hoje reunimos manipulação, homeopatia, drogaria e nutrição esportiva em um
+                  espaço moderno, sem perder o cuidado de sempre.
+                </p>
+              </div>
+              <div class="rounded-xl overflow-hidden shadow-md aspect-[4/3]">
+                <img src="images/antes-e-depois.jpg"
+                     alt="Montagem comparando a loja antiga em preto e branco com a fachada atual da Pharmacinha"
+                     class="w-full h-full object-cover" loading="lazy" width="1080" height="1193" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SERVIÇOS — os 4 pilares do negócio
+         ========================================================= -->
+    <section id="servicos" class="bg-ice py-20 lg:py-28">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="max-w-xl">
+          <h2 class="font-serif text-3xl sm:text-4xl text-navy">Serviços</h2>
+          <p class="mt-4 text-slate-600 leading-relaxed">
+            Quatro áreas, um único compromisso: cuidar de você com atenção e conhecimento técnico.
+          </p>
+        </div>
+
+        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- Card: Manipulação -->
+          <div class="bg-white rounded-lg shadow-md p-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl">
+            <div class="w-12 h-12 rounded-lg bg-ice flex items-center justify-center text-navy">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 3v3.586a1 1 0 01-.293.707L4.293 11.71A2 2 0 004 13.124V19a2 2 0 002 2h12a2 2 0 002-2v-5.876a2 2 0 00-.293-1.414l-4.414-4.417A1 1 0 0115 6.586V3M9 3h6M7 15h10" />
+              </svg>
+            </div>
+            <h3 class="font-serif text-lg text-navy mt-5">Manipulação</h3>
+            <p class="mt-2 text-[15px] text-slate-600 leading-relaxed">
+              Fórmulas manipuladas com a receita do seu médico, preparadas com precisão e
+              acompanhamento farmacêutico.
+            </p>
+          </div>
+
+          <!-- Card: Homeopatia -->
+          <div class="bg-white rounded-lg shadow-md p-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl">
+            <div class="w-12 h-12 rounded-lg bg-ice flex items-center justify-center text-navy">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.5 3 5 6.5 5 10a5 5 0 01-10 0c0-3.5 2.5-7 5-10z" />
+              </svg>
+            </div>
+            <h3 class="font-serif text-lg text-navy mt-5">Homeopatia</h3>
+            <p class="mt-2 text-[15px] text-slate-600 leading-relaxed">
+              Tratamentos homeopáticos individualizados, do diagnóstico à formulação.
+            </p>
+          </div>
+
+          <!-- Card: Drogaria -->
+          <div class="bg-white rounded-lg shadow-md p-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl">
+            <div class="w-12 h-12 rounded-lg bg-ice flex items-center justify-center text-navy">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v8m-4-4h8" />
+                <rect x="4" y="4" width="16" height="16" rx="3" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3 class="font-serif text-lg text-navy mt-5">Drogaria</h3>
+            <p class="mt-2 text-[15px] text-slate-600 leading-relaxed">
+              Medicamentos, higiene e cuidados do dia a dia, com preços justos e equipe sempre
+              pronta para orientar.
+            </p>
+          </div>
+
+          <!-- Card: Nutrição Esportiva -->
+          <div class="bg-white rounded-lg shadow-md p-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl">
+            <div class="w-12 h-12 rounded-lg bg-ice flex items-center justify-center text-navy">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.5 6.5l11 11M4 8l2-2 2 2-2 2-2-2zm12 12l2-2 2 2-2 2-2-2zM8 4l1.5-1.5M16 20l1.5-1.5M3 12h1.5M19.5 12H21" />
+              </svg>
+            </div>
+            <h3 class="font-serif text-lg text-navy mt-5">Nutrição Esportiva</h3>
+            <p class="mt-2 text-[15px] text-slate-600 leading-relaxed">
+              Suplementos e orientação para quem treina forte e quer resultado com segurança.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         DEPOIMENTOS
+         Conteúdo ilustrativo — ver observação no README sobre substituição
+         ========================================================= -->
+    <section id="depoimentos" class="bg-white py-20 lg:py-28">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <h2 class="font-serif text-3xl sm:text-4xl text-navy text-center">Quem já veio, confia</h2>
+
+        <div class="mt-12 grid md:grid-cols-3 gap-6">
+
+          <!-- Depoimento 1 (placeholder — substituir por avaliação real) -->
+          <div class="bg-ice/60 rounded-lg p-7 shadow-md">
+            <div class="flex gap-1 text-gold" aria-label="Avaliação: 5 de 5 estrelas">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15l-5.878 3.09L5.3 11.545.6 6.91l6.552-.952L10 0l2.848 5.958 6.552.952-4.7 4.635 1.178 6.545z"/></svg>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15l-5.878 3.09L5.3 11.545.6 6.91l6.552-.952L10 0l2.848 5.958 6.552.952-4.7 4.635 1.178 6.545z"/></svg>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15l-5.878 3.09L5.3 11.545.6 6.91l6.552-.952L10 0l2.848 5.958 6.552.952-4.7 4.635 1.178 6.545z"/></svg>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15l-5.878 3.09L5.3 11.545.6 6.91l6.552-.952L10 0l2.848 5.958 6.552.952-4.7 4.635 1.178 6.545z"/></svg>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15l-5.878 3.09L5.3 11.545.6 6.91l6.552-.952L10 0l2.848 5.958 6.552.952-4.7 4.635 1.178 6.545z"/></svg>
+            </div>
+            <p class="mt-4 text-slate-700 leading-relaxed">
+              “Sempre fui muito bem atendida. Fazem minha fórmula certinha, no prazo, e ainda
+              tiram todas as minhas dúvidas.”
+            </p>
+            <p class="mt-4 text-sm font-semibold text-navy">Maria S.</p>
+          </div>
+
+          <!-- Depoimento 2 (placeholder — substituir por avaliação real) -->
+          <div class="bg-ice/60 rounded-lg p-7 shadow-md">
+            <div class="flex gap-1 text-gold" aria-label="Avaliação: 5 de 5 estrelas">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15l-5.878 3.09L5.3 11.545.6 6.91l6.552-.952L10 0l2.848 5.958 6.552.952-4.7 4.635 1.178 6.545z"/></svg>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15l-5.878 3.09L5.3 11.545.6 6.91l6.552-.952L10 0l2.848 5.958 6.552.952-4.7 4.635 1.178 6.545z"/></svg>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15l-5.878 3.09L5.3 11.545.6 6.91l6.552-.952L10 0l2.848 5.958 6.552.952-4.7 4.635 1.178 6.545z"/></svg>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15l-5.878 3.09L5.3 11.545.6 6.91l6.552-.952L10 0l2.848 5.958 6.552.952-4.7 4.635 1.178 6.545z"/></svg>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15l-5.878 3.09L5.3 11.545.6 6.91l6.552-.952L10 0l2.848 5.958 6.552.952-4.7 4.635 1.178 6.545z"/></svg>
+            </div>
+            <p class="mt-4 text-slate-700 leading-relaxed">
+              “Uso o desconto de aposentado há anos. Atendimento atencioso, como antigamente.”
+            </p>
+            <p class="mt-4 text-sm font-semibold text-navy">Roberto A.</p>
+          </div>
+
+          <!-- Depoimento 3 (placeholder — substituir por avaliação real) -->
+          <div class="bg-ice/60 rounded-lg p-7 shadow-md">
+            <div class="flex gap-1 text-gold" aria-label="Avaliação: 5 de 5 estrelas">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15l-5.878 3.09L5.3 11.545.6 6.91l6.552-.952L10 0l2.848 5.958 6.552.952-4.7 4.635 1.178 6.545z"/></svg>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15l-5.878 3.09L5.3 11.545.6 6.91l6.552-.952L10 0l2.848 5.958 6.552.952-4.7 4.635 1.178 6.545z"/></svg>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15l-5.878 3.09L5.3 11.545.6 6.91l6.552-.952L10 0l2.848 5.958 6.552.952-4.7 4.635 1.178 6.545z"/></svg>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15l-5.878 3.09L5.3 11.545.6 6.91l6.552-.952L10 0l2.848 5.958 6.552.952-4.7 4.635 1.178 6.545z"/></svg>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15l-5.878 3.09L5.3 11.545.6 6.91l6.552-.952L10 0l2.848 5.958 6.552.952-4.7 4.635 1.178 6.545z"/></svg>
+            </div>
+            <p class="mt-4 text-slate-700 leading-relaxed">
+              “Encontro tudo que preciso: manipulados, homeopatia e até suplementos. Um só lugar
+              de confiança.”
+            </p>
+            <p class="mt-4 text-sm font-semibold text-navy">Fernanda L.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         FAIXA DE CONVERSÃO
+         ========================================================= -->
+    <section class="bg-gold">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+        <p class="font-serif text-xl sm:text-2xl text-navy-dark">
+          Precisa de um medicamento manipulado com a sua fórmula?
+        </p>
+        <a href="https://wa.me/5516000000000?text=Ol%C3%A1%2C%20preciso%20de%20um%20medicamento%20manipulado."
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-navy hover:bg-navy-dark text-white font-semibold px-6 py-3.5 rounded-lg transition-all duration-300 ease-in-out hover:scale-105 shrink-0">
+          Falar com a farmácia
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       FOOTER / CONTATO
+       ========================================================= -->
+  <footer id="contato" class="bg-navy-dark text-ice/90">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+
+      <div>
+        <p class="font-serif text-2xl text-white">A Pharmacinha</p>
+        <p class="mt-3 text-sm leading-relaxed text-ice/70 max-w-xs">
+          Manipulação, homeopatia, drogaria e nutrição esportiva. O importante é o seu bem-estar.
+        </p>
+        <div class="flex gap-4 mt-6">
+          <a href="https://www.instagram.com/apharmacinha/" target="_blank" rel="noopener"
+             aria-label="Instagram da A Pharmacinha" class="text-ice/70 hover:text-gold transition-colors duration-300">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+          <a href="https://wa.me/5516000000000" target="_blank" rel="noopener"
+             aria-label="WhatsApp da A Pharmacinha" class="text-ice/70 hover:text-gold transition-colors duration-300">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.478 2 2 6.477 2 12c0 1.876.52 3.632 1.42 5.13L2 22l4.998-1.386A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12.001 2zm0 18.09c-1.66 0-3.216-.457-4.548-1.25l-.326-.195-3.005.834.833-2.938-.213-.303A8.09 8.09 0 013.91 12c0-4.465 3.627-8.09 8.091-8.09 4.464 0 8.09 3.625 8.09 8.09 0 4.464-3.626 8.09-8.09 8.09z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold text-white uppercase tracking-wide">Navegação</p>
+        <ul class="mt-4 space-y-2.5 text-sm text-ice/70">
+          <li><a href="#inicio" class="hover:text-gold transition-colors duration-300">Início</a></li>
+          <li><a href="#sobre" class="hover:text-gold transition-colors duration-300">Sobre</a></li>
+          <li><a href="#servicos" class="hover:text-gold transition-colors duration-300">Serviços</a></li>
+          <li><a href="#depoimentos" class="hover:text-gold transition-colors duration-300">Depoimentos</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold text-white uppercase tracking-wide">Contato</p>
+        <!-- TODO: substituir pelos dados reais da farmácia -->
+        <ul class="mt-4 space-y-3 text-sm text-ice/70">
+          <li class="flex gap-2.5">
+            <svg class="w-4 h-4 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21c-4.5-4-7-7.5-7-11a7 7 0 1114 0c0 3.5-2.5 7-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span>Rua Exemplo, 123 — Centro, Franca/SP</span>
+          </li>
+          <li class="flex gap-2.5">
+            <svg class="w-4 h-4 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <span>(16) 0000-0000</span>
+          </li>
+          <li class="flex gap-2.5">
+            <svg class="w-4 h-4 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 3"/></svg>
+            <span>Seg a Sex: 8h–19h · Sáb: 8h–13h</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold text-white uppercase tracking-wide">Fale conosco</p>
+        <p class="mt-4 text-sm text-ice/70 leading-relaxed">
+          Dúvidas sobre um medicamento ou orçamento de manipulado? Chame a gente no WhatsApp.
+        </p>
+        <a href="https://wa.me/5516000000000?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Pharmacinha%21"
+           target="_blank" rel="noopener"
+           class="mt-4 inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-navy-dark font-semibold text-sm px-5 py-2.5 rounded-lg transition-all duration-300 ease-in-out hover:scale-105">
+          Falar no WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10">
+      <p class="max-w-7xl mx-auto px-5 sm:px-8 py-6 text-xs text-ice/50 text-center sm:text-left">
+        © <span id="current-year">2026</span> A Pharmacinha. Todos os direitos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Botão flutuante do WhatsApp -->
+  <a href="https://wa.me/5516000000000?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Pharmacinha%21"
+     target="_blank" rel="noopener" aria-label="Falar no WhatsApp"
+     class="whatsapp-pulse fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg transition-transform duration-300 ease-in-out hover:scale-110">
+    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.478 2 2 6.477 2 12c0 1.876.52 3.632 1.42 5.13L2 22l4.998-1.386A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12.001 2zm0 18.09c-1.66 0-3.216-.457-4.548-1.25l-.326-.195-3.005.834.833-2.938-.213-.303A8.09 8.09 0 013.91 12c0-4.465 3.627-8.09 8.091-8.09 4.464 0 8.09 3.625 8.09 8.09 0 4.464-3.626 8.09-8.09 8.09z"/></svg>
+  </a>
+
+  <script>
+    // -----------------------------------------------------------
+    // Menu mobile (abrir/fechar + fechar ao clicar em um link)
+    // -----------------------------------------------------------
+    const menuBtn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+
+    function setMenu(open) {
+      mobileMenu.classList.toggle('hidden', !open);
+      iconOpen.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+    }
+
+    menuBtn.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
+    mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+
+    // -----------------------------------------------------------
+    // Header ganha sombra ao rolar a página
+    // -----------------------------------------------------------
+    const header = document.getElementById('site-header');
+    window.addEventListener(
+      'scroll',
+      () => header.classList.toggle('shadow-md', window.scrollY > 8),
+      { passive: true }
+    );
+
+    // -----------------------------------------------------------
+    // Contador animado do selo "29 anos" — único momento de
+    // animação de destaque da página, disparado ao entrar na tela
+    // -----------------------------------------------------------
+    const counterEl = document.getElementById('years-counter');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (counterEl) {
+      if (prefersReducedMotion) {
+        counterEl.textContent = '29';
+      } else {
+        let hasCounted = false;
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && !hasCounted) {
+                hasCounted = true;
+                const target = 29;
+                const duration = 1300;
+                const start = performance.now();
+
+                function step(now) {
+                  const progress = Math.min((now - start) / duration, 1);
+                  const eased = 1 - Math.pow(1 - progress, 3); // ease-out cúbico
+                  counterEl.textContent = Math.round(eased * target);
+                  if (progress < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+                observer.disconnect();
+              }
+            });
+          },
+          { threshold: 0.6 }
+        );
+        observer.observe(counterEl);
+      }
+    }
+
+    // -----------------------------------------------------------
+    // Ano dinâmico no rodapé
+    // -----------------------------------------------------------
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
