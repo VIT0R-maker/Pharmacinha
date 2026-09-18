@@ -17,7 +17,7 @@ images/
 
 Marcados com `TODO` ou comentário no próprio `index.html`:
 
-- **Número de WhatsApp**: hoje está como `5516000000000` (placeholder) em 5 lugares
+- **Número de WhatsApp**: hoje está como `+55 16 98867-1112` (placeholder) em 5 lugares
   (header, hero, faixa de conversão, rodapé, botão flutuante). Buscar/substituir por
   `https://wa.me/55DDDNÚMERO`.
 - **Endereço, telefone fixo e horário de funcionamento** no rodapé — hoje têm valores
